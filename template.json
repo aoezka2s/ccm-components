@@ -1,0 +1,75 @@
+{
+  "main": {
+    "tag": "section",
+    "class": "main"
+  },
+  "ueberschrift": {
+    "tag": "h1",
+    "class": "ueberschrift"
+  },
+  "bug": {
+    "tag": "div",
+    "class": "bug",
+    "inner": [
+      {
+        "tag": "p",
+        "class": "nummer",
+        "inner": "%nummer%"
+      },
+      {
+        "tag": "p",
+        "class": "name",
+        "inner": "%name%"
+      },
+      {
+        "tag": "p",
+        "class": "titel",
+        "inner": "%titel%"
+      },
+      {
+        "tag": "p",
+        "class": "beschreibung",
+        "inner": "%beschreibung%"
+      }
+    ]
+  },
+  "input": {
+    "tag": "div",
+    "class": "form_div",
+    "inner": {
+      "tag": "form",
+      "inner": [
+        {
+          "tag": "input",
+          "placeholder": "Name",
+          "class": "bug_name"
+        },
+        {
+          "tag": "br"
+        },
+        {
+          "tag": "input",
+          "placeholder": "Titel",
+          "class": "bug_titel"
+        },
+        {
+          "tag": "br"
+        },
+        {
+          "tag": "textarea",
+          "placeholder": "Beschreibung",
+          "class": "bug_beschreibung"
+        },
+        {
+          "tag": "br"
+        },
+        {
+          "tag": "input",
+          "type": "submit",
+          "value": "Track Bug!"
+        }
+      ],
+      "onsubmit": "%onsubmit%"
+    }
+  }
+}
