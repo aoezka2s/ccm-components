@@ -1,9 +1,9 @@
 ccm.component( {
-    name: 'bugtracker',
+    name: 'commentsystem',
     config: {
         html:  [ ccm.store, { local: 'template.json' }],
-        key: 'bugTracker',
-        store: [ ccm.store, { url: 'ws://ccm2.inf.h-brs.de/index.js', store: 'aoezka2s_bugtracker' } ],
+        key: 'commentsystem',
+        store: [ ccm.store, { url: 'ws://ccm2.inf.h-brs.de/index.js', store: 'aoezka2s_comment'} ],
         style: [ ccm.load, 'style.css' ],
         user:  [ ccm.instance, 'http://kaul.inf.h-brs.de/ccm/components/user2.js' ]
     },
@@ -27,7 +27,7 @@ ccm.component( {
             self.store.get(self.key, function (dataset) {
 
                 if (dataset === null)
-                    self.store.set({key: self.key, bugs: []}, proceed);
+                    self.store.set({key: self.key, comments: []}, proceed);
                 else
                     proceed(dataset);
 
@@ -35,43 +35,40 @@ ccm.component( {
 
                     var main = ccm.helper.find(self, '.main');
 
-                    main.append( ccm.helper.html( self.html.get( 'ueberschrift' ) ) );
-
-                    var ueberschrift = ccm.helper.find( self, '.ueberschrift' );
-                    ueberschrift.append( ccm.helper.html( "Bug Tracker" ) ) ;
-
                     main.append(ccm.helper.html(self.html.get('input'), { onsubmit: function () {
 
-                            var iTitel = 'Titel: '+ccm.helper.find( self, '.bug_titel' ).val();
-                            var iBeschreibung = 'Beschreibung: '+ccm.helper.find( self, '.bug_beschreibung' ).val();
+                            var iTitel = 'Titel: '+ccm.helper.find( self, '.comment_titel' ).val();
+                            var iText = 'Text: '+ccm.helper.find( self, '.comment_text' ).val();
 
                             if (iTitel === '') return;
+                            if (iText === '') return;
 
                             self.user.login( function () {
 
-                                dataset.bugs.push({
+                                dataset.comments.push({
                                     titel: iTitel,
-                                    beschreibung: iBeschreibung,
-                                    user: self.user.data().key
+                                    date: 'Datum: '+ new Date(),
+                                    text: iText,
+                                    user: 'User: '+ self.user.data().key
                                 });
 
                                 self.store.set(dataset, function () {
                                     self.render();
                                 });
                             });
-                            main.append("<br>");
-                            return false;
+                        return false;
                         }
                     }));
 
-                   for (var i = 0; i < dataset.bugs.length; i++) {
+                   for (var i = 0; i < dataset.comments.length; i++) {
 
-                        var bug = dataset.bugs[i];
+                        var comment = dataset.comments[i];
 
-                        main.append(ccm.helper.html(self.html.get('bug'), {
-                            titel : ccm.helper.val(bug.titel),
-                            beschreibung : ccm.helper.val(bug.beschreibung),
-                            user : ccm.helper.val(bug.user)
+                        main.append(ccm.helper.html(self.html.get('comment'), {
+                            titel : ccm.helper.val(comment.titel),
+                            date: ccm.helper.val(comment.date),
+                            text : ccm.helper.val(comment.text),
+                            user : ccm.helper.val(comment.user)
                         }));
                         main.append("<br>");
                     }

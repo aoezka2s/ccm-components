@@ -1,0 +1,15 @@
+{
+  "key": "bugTracker",
+  "bugs": [
+    {
+      "titel": "My Bug",
+      "beschreibung": "Text here",
+      "user": "aoezka2s"
+    },
+    {
+      "titel": "My second Bug",
+      "beschreibung": "Text here",
+      "user": "aoezka2s"
+    }
+  ]
+}

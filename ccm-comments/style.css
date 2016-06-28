@@ -1,0 +1,42 @@
+html, body {
+    background-color:lightgrey;
+    margin:0;
+    height:100%;
+}
+.comment{
+    border: dashed 1px black;
+
+    margin-top: 5px;
+    background-color:lightslategray;
+}
+.ueberschrift{
+    border: solid 1px black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color:lightslategray;
+}
+.form_div{
+    border: solid 1px black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color:lightslategray;
+}
+form{
+    max-width: 500px;
+    padding: 10px;
+}
+.comment_titel:focus, .comment_name:focus, .comment_text:focus{
+    background-color: lightgrey;
+
+}
+textarea, input {
+    margin-bottom: 5px;
+    width: 500px;
+}
+.comment{
+    -moz-hyphens:auto;
+    -ms-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens:auto;
+    word-wrap:break-word;
+}

@@ -1,0 +1,17 @@
+{
+  "key": "commentsystem",
+  "comments": [
+    {
+      "titel": "My Comment",
+      "date": "28.06.2016",
+      "text": "Text here",
+      "user": "aoezka2s"
+    },
+    {
+      "titel": "My Comment2",
+      "date": "28.06.2016",
+      "text": "Text here",
+      "user": "aoezka2s"
+    }
+  ]
+}

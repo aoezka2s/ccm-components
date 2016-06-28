@@ -3,13 +3,9 @@
     "tag": "section",
     "class": "main"
   },
-  "ueberschrift": {
-    "tag": "h1",
-    "class": "ueberschrift"
-  },
-  "bug": {
+  "comment": {
     "tag": "div",
-    "class": "bug",
+    "class": "comment",
     "inner": [
       {
         "tag": "p",
@@ -18,13 +14,18 @@
       },
       {
         "tag": "p",
+        "class": "date",
+        "inner": "%date%"
+      },
+      {
+        "tag": "p",
         "class": "titel",
         "inner": "%titel%"
       },
       {
         "tag": "p",
-        "class": "beschreibung",
-        "inner": "%beschreibung%"
+        "class": "text",
+        "inner": "%text%"
       }
     ]
   },
@@ -40,15 +41,15 @@
         {
           "tag": "input",
           "placeholder": "Titel",
-          "class": "bug_titel"
+          "class": "comment_titel"
         },
         {
           "tag": "br"
         },
         {
           "tag": "textarea",
-          "placeholder": "Beschreibung",
-          "class": "bug_beschreibung"
+          "placeholder": "Text",
+          "class": "comment_text"
         },
         {
           "tag": "br"
@@ -56,7 +57,7 @@
         {
           "tag": "input",
           "type": "submit",
-          "value": "Track Bug!"
+          "value": "Submit Comment!"
         }
       ],
       "onsubmit": "%onsubmit%"
